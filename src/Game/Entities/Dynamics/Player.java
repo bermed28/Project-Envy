@@ -87,6 +87,11 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			}
 
 		}
+		if(!handler.getKeyManager().debugBut) {
+			handler.getGame().DEBUGMODE = false;
+		} else {
+			handler.getGame().DEBUGMODE = true;
+		}
 	}
 
 
