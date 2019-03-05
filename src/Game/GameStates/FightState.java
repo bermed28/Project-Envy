@@ -518,7 +518,7 @@ public class FightState extends InWorldState{
         uiManager.addObjects(new UIImageButton(handler.getWidth() * 38/60 - 128/2, 5*handler.getHeight()/6, 128, 64, Images.Skill, new ClickListlener() {
             @Override
             public void onClick() {
-                if(handler.getEntityManager().getPlayer().getMana()>=25) {
+                if(handler.getEntityManager().getPlayer().getMana()>=25 && handler.getEntityManager().getPlayer().getSkill() != "None") {
                     System.out.println("Skill");
                     skill = true;
                 }
