@@ -27,6 +27,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
 							InAreaWidthFrontAndBack = 15 * 5, InAreaHeightFront = 27 * 5, InAreaHeightBack = 23 * 5,
 							InAreaWidthSideways = 13 * 5, InAreaHeightSideways = 22 * 5;
+	
 
 	private int currentWidth, currentHeight;
 	public static boolean isinArea = false;
@@ -87,10 +88,11 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			}
 
 		}
-		if(!handler.getKeyManager().debugBut) {
-			handler.getGame().DEBUGMODE = false;
+		
+		if(handler.getKeyManager().debugCollisions) {
+			handler.getGame().DEBUGMODE = !handler.getGame().DEBUGMODE;
 		} else {
-			handler.getGame().DEBUGMODE = true;
+			handler.getGame().DEBUGMODE = handler.getGame().DEBUGMODE;
 		}
 	}
 

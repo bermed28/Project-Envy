@@ -1,6 +1,7 @@
 package Game.GameStates;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
+import Game.Entities.Dynamics.Player;
 import Main.GameSetUp;
 import Main.Handler;
 
@@ -24,6 +25,7 @@ public class FightState extends InWorldState{
 
     BaseHostileEntity enemy;
     Rectangle enemyRect, playerRect;
+    private Player player;
 
     public int fightWordXPos = handler.getWidth()/2 - 250;
     public int fightWordYPos = 0 - 80;
@@ -155,6 +157,8 @@ public class FightState extends InWorldState{
             }
 
         }
+        
+     
 
         this.moveFightString();
 
@@ -470,7 +474,14 @@ public class FightState extends InWorldState{
             uiManager.getObjects().get(optionSelect).onClick();}
 
         eWait = System.currentTimeMillis() + 3500;
+        
+//        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_H)) {
+//        	player.setHealth(player.getMaxHealth());
+//        	player.setMana(player.getMaxMana());
+//        	System.out.println("Health & Mana reset!");
+//        }
     }
+    
 
     private void setUiManager() {
         uiManager = new UIManager(handler);

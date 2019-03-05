@@ -33,7 +33,8 @@ public class KeyManager implements KeyListener {
 	public boolean fattbut=false;
 	public boolean pbutt=false;
 	public boolean runbutt=false;
-	public boolean debugBut = false;
+	public boolean debugCollisions = false;
+	public boolean debugRefill = false;
 
 	public KeyManager(){
 
@@ -66,9 +67,10 @@ public class KeyManager implements KeyListener {
 		fattbut = keys[KeyEvent.VK_C];
 		pbutt = keys[KeyEvent.VK_ESCAPE];
 		runbutt = keys[KeyEvent.VK_SHIFT];
-		debugBut = keys[KeyEvent.VK_F7];
+		debugCollisions = keys[KeyEvent.VK_F7];
+		debugRefill = keys[KeyEvent.VK_H];
 
-	}
+	} 
 
 	@Override
 	public void keyPressed(KeyEvent e) {
