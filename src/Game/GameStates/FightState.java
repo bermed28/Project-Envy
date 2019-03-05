@@ -158,6 +158,20 @@ public class FightState extends InWorldState{
 
         }
         
+        if(handler.getKeyManager().debugCollisions) {
+			handler.getGame().DEBUGMODE = !handler.getGame().DEBUGMODE;
+			System.out.println("Turned on debug Mode");
+		} else {
+			handler.getGame().DEBUGMODE = handler.getGame().DEBUGMODE;
+			System.out.println("Turned off debug Mode");
+		}
+        
+        if(handler.getKeyManager().debugRefill) {
+			handler.getEntityManager().getPlayer().setHealth(handler.getEntityManager().getPlayer().getMaxHealth());
+			handler.getEntityManager().getPlayer().setMana(handler.getEntityManager().getPlayer().getMaxMana());
+			System.out.println("Max Health & Mana Reset!");
+		}
+        
      
 
         this.moveFightString();
@@ -475,11 +489,6 @@ public class FightState extends InWorldState{
 
         eWait = System.currentTimeMillis() + 3500;
         
-//        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_H)) {
-//        	player.setHealth(player.getMaxHealth());
-//        	player.setMana(player.getMaxMana());
-//        	System.out.println("Health & Mana reset!");
-//        }
     }
     
 
