@@ -80,10 +80,13 @@ public class Images {
 
 	public static SpriteSheet smokeHouseSheet;
 	public static SpriteSheet statueSheet;
+	public static SpriteSheet batchOne;
 
 	public static BufferedImage[] smokeHouse;
 
 	public static BufferedImage[] lightStatue;
+	
+	public static BufferedImage[] caveBlocker;
 
 	public static BufferedImage[] SItem;
 
@@ -135,6 +138,7 @@ public class Images {
 
 		smokeHouse = new BufferedImage[7];
 		lightStatue = new BufferedImage[10];
+		caveBlocker = new BufferedImage[7];
 
 		try {
 			
@@ -144,6 +148,7 @@ public class Images {
 			
 			smokeHouseSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/House.png")));
 			statueSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/statueSheet.png")));
+			batchOne = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/batchOne.png")));
 
 			iceSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/iceSkill.png")));
 			fireSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/fireSkill.png")));
@@ -213,6 +218,14 @@ public class Images {
 			lightStatue[7] = statueSheet.crop(48, 48, 16, 48);
 			lightStatue[8] = statueSheet.crop(0, 96, 16, 48);
 			lightStatue[9] = statueSheet.crop(0, 96, 16, 48);
+			
+			caveBlocker[0] = batchOne.crop(223, 0, 33, 33);
+			caveBlocker[1] = batchOne.crop(226, 75, 33, 33);
+			caveBlocker[2] = batchOne.crop(261, 75, 33, 33);
+			caveBlocker[3] = batchOne.crop(296, 75, 33, 33);
+			caveBlocker[4] = batchOne.crop(226, 111, 33, 33);
+			caveBlocker[5] = batchOne.crop(261, 111, 33, 33);
+			caveBlocker[6] = batchOne.crop(297, 111, 33, 33);
 
 
 			PEnemyIdle[0] = PEnemySheet.crop(0, 0, 38, 40);

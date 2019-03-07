@@ -46,7 +46,7 @@ public class EntityManager {
 	
 	private void CheckCollisions(BaseEntity e) {
 		
-		if ( player.getCollision().intersects(e.getCollision())&&!GameSetUp.SWITCHING) {
+		if (player.getCollision().intersects(e.getCollision())&&!GameSetUp.SWITCHING) {
 			
 			if (e instanceof BaseStaticEntity){
 				player.WallBoundary(e.getXOffset());
