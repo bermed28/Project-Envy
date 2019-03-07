@@ -91,10 +91,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		
 		if(handler.getKeyManager().debugCollisions) {
 			handler.getGame().DEBUGMODE = !handler.getGame().DEBUGMODE;
-			System.out.println("Turned on debug Mode");
-		} else {
-			handler.getGame().DEBUGMODE = handler.getGame().DEBUGMODE;
-			System.out.println("Turned off debug Mode");
 		}
 		
 		if(handler.getKeyManager().debugRefill) {
