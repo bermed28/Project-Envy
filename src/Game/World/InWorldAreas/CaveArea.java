@@ -17,8 +17,7 @@ public class CaveArea extends BaseArea {
     public static boolean isInCave = false;
 
     private int imageWidth = 3680, imageHeight = 4000;
-    public final static int playerXSpawn = -380, playerYSpawn = -3180
-    		;
+    public final static int playerXSpawn = -380, playerYSpawn = -3180;
 
     private Rectangle background = new Rectangle(3000, 3000);
 

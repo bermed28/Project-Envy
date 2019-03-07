@@ -88,8 +88,10 @@ public class Images {
 	public static BufferedImage[] SItem;
 
 	public static BufferedImage CaveMap;
+	public static BufferedImage TownMap;
 	public static BufferedImage Loading;
 	public static Image ScaledCave;
+	public static Image ScaledTown;
 	public static Image ScaledArea;
 	public static BufferedImage tree;
 
@@ -158,6 +160,7 @@ public class Images {
 
 
 			CaveMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/CaveMap.png"));
+			TownMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/townMap.png"));
 			tree = ImageIO.read(getClass().getResourceAsStream("/Sheets/Tree.png"));
 			title = ImageIO.read(getClass().getResourceAsStream("/Sheets/menuImage.png"));
 			title2 = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
@@ -719,6 +722,7 @@ public class Images {
 		map[3] = toBufferedImage(Scaledmap[1]);
 		
 		ScaledCave = Images.CaveMap.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH); // 368x400 pixel image
+		ScaledTown = Images.TownMap.getScaledInstance(5640, 5200, Image.SCALE_SMOOTH); //564x520 pixel image
 
 	}
 
