@@ -9,7 +9,6 @@ import java.awt.event.KeyEvent;
 
 import Game.Entities.EntityManager;
 import Game.Entities.Dynamics.Player;
-import Game.Entities.Statics.CaveBlockerEntity;
 import Game.World.WorldManager;
 
 public class MapState extends State {
