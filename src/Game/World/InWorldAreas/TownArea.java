@@ -16,12 +16,13 @@ public class TownArea extends BaseArea{
 	
 	public static boolean isInTown = false;
 	
-	private int imageWidth = 3680, imageHeight = 4000;
-	public final static int playerXSpawn = -380, playerYSpawn = -3180;
+	private int imageWidth = 6080, imageHeight = 4480;
+	public final static int playerXSpawn = 70, playerYSpawn = -1700;
 	
 	private Rectangle background = new Rectangle(3000,3000);
 	
 	public static ArrayList<InWorldWalls> townWalls;
+	Color backgroundColor = new Color(152,200,120);
 	
 	public TownArea(Handler handler, EntityManager entityManager) {
 		super(handler, entityManager);
@@ -56,7 +57,7 @@ public class TownArea extends BaseArea{
 
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.black);
+        g2.setColor(backgroundColor);
         g2.fill(background);
 
         g.drawImage(Images.ScaledTown, handler.getXInWorldDisplacement(), handler.getYInWorldDisplacement(), null);
@@ -79,9 +80,7 @@ public class TownArea extends BaseArea{
 
 	private void AddWalls() {
 		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
-		townWalls.add(new InWorldWalls(handler, imageWidth - 130, 0, 10, imageHeight, "Wall"));	
-		townWalls.add(new InWorldWalls(handler, imageWidth/3, imageHeight, 300, 50, "Wall"));
-		townWalls.add(new InWorldWalls(handler, 1230, 3900, 280, 100, "Exit"));	// Exit at Start
+		townWalls.add(new InWorldWalls(handler, 15,2025, 100, 300, "Exit"));	// Exit at Start
       						
 
 		
