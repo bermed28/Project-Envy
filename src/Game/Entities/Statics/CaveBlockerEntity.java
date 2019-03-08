@@ -10,6 +10,7 @@ import Resources.Images;
 public class CaveBlockerEntity extends BaseStaticEntity{
 
 	Rectangle collision;
+	public static boolean itExists = true;
 	int width, height;
 	
 	public CaveBlockerEntity(Handler handler, int xPosition, int yPosition) {
@@ -24,9 +25,14 @@ public class CaveBlockerEntity extends BaseStaticEntity{
 		collision = new Rectangle();
 	}
 	
+	public void tick() {
+		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition + 1060), 
+				(int)(handler.getYDisplacement() + yPosition - 5700 + 50), width, height);
+	}
+	
 	public void render(Graphics g) {
-		g.drawImage(Images.caveBlocker, (int)(handler.getXDisplacement() + xPosition + 1060),(int)( handler.getYDisplacement() + yPosition - 540), width, height, null);
-		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition + 35 + 1060), (int)(handler.getYDisplacement() + yPosition - 540 + 50), width/4, height/2);
+		g.drawImage(Images.caveBlocker, (int)(handler.getXDisplacement() + xPosition + 1060),
+				(int)( handler.getYDisplacement() + yPosition - 540), width, height, null);
 	}
 	
 	@Override
@@ -39,6 +45,6 @@ public class CaveBlockerEntity extends BaseStaticEntity{
 		return xPosition;
 	}
 	
-	
+	;
 
 }

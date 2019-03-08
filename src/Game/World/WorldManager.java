@@ -1,6 +1,7 @@
 package Game.World;
 
 import Game.Entities.EntityManager;
+import Game.Entities.Dynamics.Player;
 import Game.Entities.Statics.CaveBlockerEntity;
 import Game.Entities.Statics.SmokeHouse;
 import Game.Entities.Statics.Tree;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 public class WorldManager {
 
 	protected Handler handler;
+	private CaveBlockerEntity caveBlocker;
+	private Player player;
 	private Circle circle;
 	public EntityManager entityManager;
 	Animation animation;
@@ -133,9 +136,16 @@ public class WorldManager {
 
 		worldWalls.add(new Walls(handler, 1980, -350, 50, 50, "Wall"));
 		worldWalls.add(new Walls(handler, 1950, -250, 200, 100, "Wall"));	
-		worldWalls.add(new Walls(handler, 1960, -150, 120, 100, "Wall"));
-
-		worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
+		
+		
+		if(!CaveBlockerEntity.itExists) {
+			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
+			worldWalls.add(new Walls(handler, (int) circle.getXOffset(), 
+					(int) circle.getYOffset(),20,20,"Door S"));
+		} else {
+			worldWalls.add(new Walls(handler, 1662, 80, 50, 60, "Wall"));
+		}
+		
 		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
 				circle.getYOffset(), 20, 20, "Door S"));	
 
@@ -180,5 +190,6 @@ public class WorldManager {
 		}		
 		return newString.toUpperCase();		
 	}
+	
 
 }
