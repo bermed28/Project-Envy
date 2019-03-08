@@ -81,7 +81,7 @@ public class TownArea extends BaseArea{
 		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
 		townWalls.add(new InWorldWalls(handler, imageWidth - 130, 0, 10, imageHeight, "Wall"));	
 		townWalls.add(new InWorldWalls(handler, imageWidth/3, imageHeight, 300, 50, "Wall"));
-		townWalls.add(new InWorldWalls(handler, 2950, 340, 320, 100, "Exit"));							// Exit at Start
+		townWalls.add(new InWorldWalls(handler, 1230, 3900, 280, 100, "Exit"));	// Exit at Start
       						
 
 		
