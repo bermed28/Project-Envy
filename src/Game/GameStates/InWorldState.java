@@ -3,6 +3,7 @@ package Game.GameStates;
 import Game.Entities.EntityManager;
 import Game.World.InWorldAreas.BaseArea;
 import Game.World.InWorldAreas.CaveArea;
+import Game.World.InWorldAreas.TownArea;
 import Main.GameSetUp;
 import Main.Handler;
 import java.awt.*;
@@ -16,6 +17,7 @@ public class InWorldState extends State{
     public EntityManager entityManager;	// To manager the entities within the InWorld
     public static BaseArea currentArea;
     public static BaseArea caveArea;
+    public static BaseArea townArea;
     public static BaseArea SArea;
 
     public InWorldState(Handler handler) {
@@ -23,6 +25,7 @@ public class InWorldState extends State{
         entityManager = new EntityManager(handler, handler.getEntityManager().getPlayer());
 
         caveArea = new CaveArea(handler, entityManager);
+        townArea = new TownArea(handler, entityManager);
         SArea = this.handler.getKeyManager().new Area(handler, entityManager);
 
     }

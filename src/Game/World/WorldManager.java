@@ -142,6 +142,16 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 620, 210, 80, 160, "Wall"));
 		worldWalls.add(new Walls(handler, 840, 240, 120, 110, "Wall"));
 		worldWalls.add(new Walls(handler, 580, 300, 40, 50, "Wall"));
+		
+		//Town Walls
+		worldWalls.add(new Walls(handler,1095, 410, 95, 130, "Door Town"));
+		worldWalls.add(new Walls(handler,1175, 410, 110, 130, "Door Town"));
+		worldWalls.add(new Walls(handler,1185, 545, 95, 110, "Door Town"));
+		worldWalls.add(new Walls(handler,1095, 545, 110, 130, "Door Town"));
+//		worldWalls.add(new Walls(handler, 1195, 435, 50, 50, "Door Town"));
+
+
+
 	}
 
 	public void collidedWithWall() {
