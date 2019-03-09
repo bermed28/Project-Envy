@@ -80,6 +80,31 @@ public class TownArea extends BaseArea{
 
 	private void AddWalls() {
 		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 0, 1886, 1850, 15, "Wall"));
+		townWalls.add(new InWorldWalls(handler, 1810, 0, 23, 1749, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 1730, 1740, 12, 82, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 1830, 1600, 75, 104, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 1890, 990, 350, 104, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 2300, 790, 10, 770, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 2150, 1340, 85, 234, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 2300, 1580, 1050, 15, "Wall"));
+		townWalls.add(new InWorldWalls(handler, 3400, 790, 10, 770, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 3350, 1600, 1100, 105, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 4250, 1970, 105, 204, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 4390, 1360, 850,850 , "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 0, 4000, imageWidth, 10, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageWidth, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
+//		townWalls.add(new InWorldWalls(handler, 100, 0, 10, imageHeight, "Wall"));	
 		townWalls.add(new InWorldWalls(handler, 15,2025, 100, 300, "Exit"));	// Exit at Start
       						
 
