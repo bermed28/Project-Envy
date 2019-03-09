@@ -35,7 +35,7 @@ public class LightStatue extends BaseStaticEntity {
 
 	@Override
 	public void render(Graphics g) {
-		if(!Player.isinArea)
+		if(Player.isinArea)
 			g.drawImage(light.getCurrentFrame(), (int)(handler.getXInWorldDisplacement() + xPosition),(int)( handler.getYInWorldDisplacement() + yPosition), width, height, null);
 	}
 

@@ -39,7 +39,7 @@ public class Images {
 	public static BufferedImage projectTitle;
 	public static BufferedImage envyTitle;
 	public static BufferedImage ghost;
-	public static BufferedImage townEntity;
+	public static BufferedImage townEntity[];
 
 
 
@@ -82,6 +82,7 @@ public class Images {
 
 	public static SpriteSheet smokeHouseSheet;
 	public static SpriteSheet statueSheet;
+	public static SpriteSheet townEntitySheet;
 	public static BufferedImage[] smokeHouse;
 
 	public static BufferedImage[] lightStatue;
@@ -139,6 +140,7 @@ public class Images {
 
 		smokeHouse = new BufferedImage[7];
 		lightStatue = new BufferedImage[10];
+		townEntity = new BufferedImage[4];
 
 		try {
 			
@@ -148,7 +150,9 @@ public class Images {
 			
 			smokeHouseSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/House.png")));
 			statueSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/statueSheet.png")));
+			townEntitySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/townEntity.png")));
 
+			
 			iceSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/iceSkill.png")));
 			fireSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/fireSkill.png")));
 			defenceModeSheet=  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/defenceMode.png")));
@@ -220,7 +224,10 @@ public class Images {
 			lightStatue[8] = statueSheet.crop(0, 96, 16, 48);
 			lightStatue[9] = statueSheet.crop(0, 96, 16, 48);
 			
-
+			townEntity[0] = townEntitySheet.crop(17, 11, 33, 56);
+			townEntity[1] = townEntitySheet.crop(242, 12, 30, 54);
+			townEntity[2] = townEntitySheet.crop(278, 11, 29, 56);
+			townEntity[3] = townEntitySheet.crop(320, 12, 32, 53);
 
 			PEnemyIdle[0] = PEnemySheet.crop(0, 0, 38, 40);
 			PEnemyIdle[1] = PEnemySheet.crop(39, 0, 39, 40);
@@ -233,8 +240,6 @@ public class Images {
 
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
 			caveBlocker = ImageIO.read(getClass().getResourceAsStream("/Sheets/caveBlocker.png"));
-			townEntity = ImageIO.read(getClass().getResourceAsStream("/Sheets/Monster039.png"));
-
 
 			player_front[0] = playerSheet.crop(1, 6, 15, 27);
 			player_front[1] = playerSheet.crop(17, 7, 15, 27);
