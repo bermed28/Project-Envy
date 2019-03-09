@@ -39,6 +39,8 @@ public class Images {
 	public static BufferedImage projectTitle;
 	public static BufferedImage envyTitle;
 	public static BufferedImage ghost;
+	public static BufferedImage townEntity;
+
 
 
 	public static SpriteSheet playerSheet;
@@ -231,6 +233,8 @@ public class Images {
 
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
 			caveBlocker = ImageIO.read(getClass().getResourceAsStream("/Sheets/caveBlocker.png"));
+			townEntity = ImageIO.read(getClass().getResourceAsStream("/Sheets/Monster039.png"));
+
 
 			player_front[0] = playerSheet.crop(1, 6, 15, 27);
 			player_front[1] = playerSheet.crop(17, 7, 15, 27);

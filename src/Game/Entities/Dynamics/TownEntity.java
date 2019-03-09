@@ -1,8 +1,5 @@
 package Game.Entities.Dynamics;
 
-import Game.Entities.BaseEntity;
-import Game.GameStates.FightState;
-import Game.GameStates.State;
 import Main.Handler;
 import Resources.Animation;
 import Resources.Images;
@@ -68,7 +65,7 @@ public class TownEntity extends BaseDynamicEntity {
 
             g2.setColor(Color.black);
 
-            g.drawImage(Images.ghost,townEntity.x,townEntity.y,townEntity.width,townEntity.height,null);
+            g.drawImage(Images.townEntity,townEntity.x,townEntity.y,townEntity.width,townEntity.height,null);
 
             if (townEntity.intersects(handler.getEntityManager().getPlayer().getCollision())) {
                 handler.getEntityManager().getPlayer().facing = "Left";
@@ -81,13 +78,13 @@ public class TownEntity extends BaseDynamicEntity {
 
 
 
-		public BufferedImage getIdle(){
+/*		public BufferedImage getIdle(){
 			if(!PEnemyIdle.getCurrentFrame().equals(null)) {
 				return PEnemyIdle.getCurrentFrame();
 			}else{
 				return Images.PEnemyIdle[0];
 			}
-		}
+		} */
 
 		public BufferedImage getCurrentAnimationFrame( Animation animDown, Animation animUp, Animation animLeft, Animation animRight, BufferedImage[] front,BufferedImage[] back,BufferedImage[] left,BufferedImage[] right) {
 			BufferedImage frame = null;
