@@ -19,7 +19,6 @@ public class WorldManager {
 	protected Handler handler;
 	public boolean skillUnlocked = false;
 	private Circle circle;
-	//public CaveBlockerEntity caveBlockerEntity = new CaveBlockerEntity(handler, 600, 600);
 	public EntityManager entityManager;
 	Animation animation;
 	Rectangle rectangle;
@@ -52,14 +51,14 @@ public class WorldManager {
 	}
 
 	public void tick() {
-
+		this.checkForSkill();
 		for (Walls w: this.worldWalls) {
 			w.tick();
 		}
 
 		this.animation.tick();
 		this.collidedWithWall();
-		this.checkForSkill();
+
 		this.moveString();
 
 
@@ -137,19 +136,14 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 1950, -300, 100, 50, "Wall"));
 
 		worldWalls.add(new Walls(handler, 1980, -350, 50, 50, "Wall"));
-		worldWalls.add(new Walls(handler, 1950, -250, 200, 100, "Wall"));	
-		
-		
-//		if(CaveBlockerEntity.itExists == false) {
-//			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
-//			worldWalls.add(new Walls(handler, (int) circle.getXOffset(),
-//					(int) circle.getYOffset(),20,20,"Door S"));
-//		} else {
-//			worldWalls.add(new Walls(handler, 1662, 80, 50, 60, "Wall"));
-//		}
+		worldWalls.add(new Walls(handler, 1950, -250, 200, 100, "Wall"));
 		
 		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
-				circle.getYOffset(), 20, 20, "Door S"));	
+				circle.getYOffset(), 20, 20, "Door S"));
+
+		if(!skillUnlocked) {
+			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Wall"));
+		}
 
 		///Left Mountains
 		worldWalls.add(new Walls(handler, 700, 180, 140, 200, "Wall"));
@@ -207,15 +201,12 @@ public class WorldManager {
 
 		if(!handler.getEntityManager().getPlayer().getSkill().equals("none")) {
 			skillUnlocked = true;
-			CaveBlockerEntity.itExists = false;
 			this.entityManager.RemoveEntity(new CaveBlockerEntity(handler, 600, 600));
 			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
-			worldWalls.add(new Walls(handler, (int) circle.getXOffset(), (int) circle.getYOffset(),20,20,"Door S"));
+
 		} else {
 			skillUnlocked = false;
-			CaveBlockerEntity.itExists = true;
 			this.entityManager.AddEntity(new CaveBlockerEntity(handler, 600, 600));
-			worldWalls.add(new Walls(handler, 1662, 80, 50, 60, "Wall"));
 		}
 
 
