@@ -45,6 +45,6 @@ public class CaveBlockerEntity extends BaseStaticEntity{
 		return xPosition;
 	}
 	
-	;
+
 
 }

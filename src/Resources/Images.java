@@ -39,7 +39,7 @@ public class Images {
 	public static BufferedImage projectTitle;
 	public static BufferedImage envyTitle;
 	public static BufferedImage ghost;
-	public static BufferedImage townEntity[];
+	public static BufferedImage[] townEntity;
 
 
 

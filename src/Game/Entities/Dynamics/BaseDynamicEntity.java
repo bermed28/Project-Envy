@@ -21,7 +21,7 @@ public class BaseDynamicEntity extends BaseEntity {
 	protected Rectangle nextArea;
 	public String facing = "Down";
 
-    public BaseDynamicEntity(Handler handler, int xPosition, int yPosition,BufferedImage[] animFrames) {
+    public BaseDynamicEntity(Handler handler, int xPosition, int yPosition, BufferedImage[] animFrames) {
 		super(handler, xPosition, yPosition);
         nextArea = new Rectangle();
 		PEnemyIdle = new Animation(120, animFrames);

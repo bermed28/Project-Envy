@@ -17,9 +17,9 @@ import java.util.ArrayList;
 public class WorldManager {
 
 	protected Handler handler;
-	private CaveBlockerEntity caveBlocker;
-	private Player player;
+	public boolean skillUnlocked = false;
 	private Circle circle;
+	//public CaveBlockerEntity caveBlockerEntity = new CaveBlockerEntity(handler, 600, 600);
 	public EntityManager entityManager;
 	Animation animation;
 	Rectangle rectangle;
@@ -40,7 +40,6 @@ public class WorldManager {
 		circle = handler.getGame().getMouseManager().new Circle(5627,380, this.handler);
 		this.entityManager.AddEntity(new Tree(handler, 600, 600));
 		this.entityManager.AddEntity(new SmokeHouse(handler, 1153, 335));
-		this.entityManager.AddEntity(new CaveBlockerEntity(handler, 600, 600));
 
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
@@ -57,9 +56,12 @@ public class WorldManager {
 		for (Walls w: this.worldWalls) {
 			w.tick();
 		}
+
 		this.animation.tick();
 		this.collidedWithWall();
+		this.checkForSkill();
 		this.moveString();
+
 
 	}
 
@@ -138,13 +140,13 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 1950, -250, 200, 100, "Wall"));	
 		
 		
-		if(!CaveBlockerEntity.itExists) {
-			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
-			worldWalls.add(new Walls(handler, (int) circle.getXOffset(), 
-					(int) circle.getYOffset(),20,20,"Door S"));
-		} else {
-			worldWalls.add(new Walls(handler, 1662, 80, 50, 60, "Wall"));
-		}
+//		if(CaveBlockerEntity.itExists == false) {
+//			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
+//			worldWalls.add(new Walls(handler, (int) circle.getXOffset(),
+//					(int) circle.getYOffset(),20,20,"Door S"));
+//		} else {
+//			worldWalls.add(new Walls(handler, 1662, 80, 50, 60, "Wall"));
+//		}
 		
 		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
 				circle.getYOffset(), 20, 20, "Door S"));	
@@ -200,6 +202,23 @@ public class WorldManager {
 		}		
 		return newString.toUpperCase();		
 	}
-	
+
+	public void checkForSkill() {
+
+		if(!handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+			skillUnlocked = true;
+			CaveBlockerEntity.itExists = false;
+			this.entityManager.RemoveEntity(new CaveBlockerEntity(handler, 600, 600));
+			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
+			worldWalls.add(new Walls(handler, (int) circle.getXOffset(), (int) circle.getYOffset(),20,20,"Door S"));
+		} else {
+			skillUnlocked = false;
+			CaveBlockerEntity.itExists = true;
+			this.entityManager.AddEntity(new CaveBlockerEntity(handler, 600, 600));
+			worldWalls.add(new Walls(handler, 1662, 80, 50, 60, "Wall"));
+		}
+
+
+	}
 
 }

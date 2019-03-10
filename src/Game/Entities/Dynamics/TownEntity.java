@@ -3,59 +3,54 @@ package Game.Entities.Dynamics;
 import Main.Handler;
 import Resources.Animation;
 import Resources.Images;
-import Game.World.InWorldAreas.TownArea;
-import Game.GameStates.FightState;
-import Game.GameStates.InWorldState;
-import Game.GameStates.State;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+
 public class TownEntity extends BaseDynamicEntity {
-	
 
-	private Rectangle townEntity;
-	int width, height;
-	
-	private Animation anim;
-	private int animWalkingSpeed = 150;
-	
-	public TownEntity(Handler handler, int xPosition, int yPosition) {
-		super(handler, yPosition, yPosition, null);
+	private Rectangle collision;
+	private Animation townEntity;
+	private int width, height;
+	private static final int DEFAULT_WIDTH = 70, DEFAULT_HEIGHT = 150;
 
-		this.setXOffset(xPosition);
+
+	public TownEntity(Handler handler, int xPosition, int yPosition, BufferedImage[] animFrames) {
+		super(handler, xPosition, yPosition, animFrames);
+
+		width = DEFAULT_WIDTH;
+		height = DEFAULT_HEIGHT;
+
 		this.setYOffset(yPosition);
-		anim = new Animation(animWalkingSpeed, Images.townEntity);
-		
-		speed = 1;
-		townEntity = new Rectangle();
+		this.setXOffset(xPosition);
 
+		animFrames = Images.townEntity;
+		townEntity = new Animation(200, animFrames);
+
+		collision = new Rectangle();
 	}
-	
+
 	@Override
-	public void tick() { 
-		
-		if(Player.isinArea) {super.tick();}
-		 
-		
+	public void tick() {
+		townEntity.tick();
 	}
-	
+
 	@Override
 	public void render(Graphics g) {
-		super.render(g);
-		
-		if(Player.isinArea) {
-            townEntity = new Rectangle((int) (handler.getXDisplacement() + getXOffset()),
-                    (int) (handler.getYDisplacement() + getYOffset()), 45, 45);
+		g.drawImage(townEntity.getCurrentFrame(),(int)(handler.getXInWorldDisplacement() + xPosition + 900),(int)( handler.getYInWorldDisplacement() + yPosition - 400),this.width,this.height,null);
+	}
 
-        } else {
-            townEntity = new Rectangle((int) (handler.getXInWorldDisplacement() + getXOffset()),
-                    (int) (handler.getYInWorldDisplacement() + getYOffset()), 70, 70);
+	public int getWidth() {
+		return width;
+	}
 
-        }
-		
-        g.drawImage(anim.getCurrentFrame(),townEntity.x,townEntity.y,townEntity.width,townEntity.height,null);
-        
+	public int getHeight() {
+		return height;
+	}
+	@Override
+	public Rectangle getCollision() {
+		return collision;
 	}
 
 }

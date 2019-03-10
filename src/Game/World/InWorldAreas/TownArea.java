@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import Game.Entities.EntityManager;
 import Game.Entities.Dynamics.TownEntity;
-import Game.Entities.Statics.CaveBlockerEntity;
 import Game.World.Walls;
 
 public class TownArea extends BaseArea{
@@ -34,7 +33,7 @@ public class TownArea extends BaseArea{
         playerRect = new Rectangle((int) handler.getWidth() / 2 - 5, (int) (handler.getHeight() / 2) + 300, 70, 70);
         
         this.entityManager = entityManager;
-        this.entityManager.AddEntity(new TownEntity(handler, 600, 600));
+        this.entityManager.AddEntity(new TownEntity(handler,1670, 2230, Images.townEntity));
         townWalls = new ArrayList<>();
         AddWalls();
 	}
