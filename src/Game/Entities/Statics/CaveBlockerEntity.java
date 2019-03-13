@@ -1,6 +1,5 @@
 package Game.Entities.Statics;
 
-
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -9,7 +8,7 @@ import Resources.Images;
 
 public class CaveBlockerEntity extends BaseStaticEntity{
 
-	Rectangle collision;
+	public static Rectangle collision;
 	public static boolean itExists = true;
 	int width, height;
 	

@@ -17,6 +17,7 @@ public class Images {
 	private boolean processPixelSheet = false;
 
 	public static BufferedImage[] butstart;
+	public static BufferedImage quest;
 	public static BufferedImage title;
 	public static BufferedImage title2;
 	public static BufferedImage title3;
@@ -170,6 +171,7 @@ public class Images {
 			TownMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/townMap.png"));
 			tree = ImageIO.read(getClass().getResourceAsStream("/Sheets/Tree.png"));
 			title = ImageIO.read(getClass().getResourceAsStream("/Sheets/menuImage.png"));
+			quest = ImageIO.read(getClass().getResourceAsStream("/Sheets/QST.png"));
 			title2 = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
 			title3 = ImageIO.read(getClass().getResourceAsStream("/Sheets/static.jpg"));
 			title4 = ImageIO.read(getClass().getResourceAsStream("/Sheets/static1.jpg"));

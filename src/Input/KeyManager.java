@@ -34,6 +34,7 @@ public class KeyManager implements KeyListener {
 	public boolean pbutt=false;
 	public boolean runbutt=false;
 	public boolean debugCollisions = false;
+	public boolean questKey = false;
 	public boolean debugRefill = false;
 
 	public KeyManager(){
@@ -69,6 +70,7 @@ public class KeyManager implements KeyListener {
 		runbutt = keys[KeyEvent.VK_SHIFT];
 		debugCollisions = keys[KeyEvent.VK_F7];
 		debugRefill = keys[KeyEvent.VK_H];
+		questKey = keys[KeyEvent.VK_E];
 
 	} 
 

@@ -38,7 +38,27 @@ public class TownEntity extends BaseDynamicEntity {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(townEntity.getCurrentFrame(),(int)(handler.getXInWorldDisplacement() + xPosition + 900),(int)( handler.getYInWorldDisplacement() + yPosition - 400),this.width,this.height,null);
+		super.render(g);
+
+		collision = new Rectangle((int)(handler.getXInWorldDisplacement() + xPosition + 780),
+				(int)( handler.getYInWorldDisplacement() + yPosition - 350),this.width + 85,this.height  + 25);
+
+
+		g.drawImage(townEntity.getCurrentFrame(),(int)(handler.getXInWorldDisplacement() + xPosition + 900),
+				(int)( handler.getYInWorldDisplacement() + yPosition - 400),this.width * -1,this.height,null);
+
+
+		if (collision.intersects(handler.getEntityManager().getPlayer().getCollision())) {
+			g.setColor(Color.black);
+			g.setFont(new Font("IMPACT", Font.BOLD, 25));
+			g.drawString("Press 'E' to Interact", (int) (handler.getXInWorldDisplacement() + xPosition + 780),
+                    (int) (handler.getYInWorldDisplacement() +yPosition - 200));
+			if(handler.getKeyManager().questKey) {
+				handler.getKeyManager().questKey = !handler.getKeyManager().questKey;
+				g.drawString("Key Pressed!", (int) (handler.getXInWorldDisplacement() + xPosition + 780),
+                        (int) (handler.getYInWorldDisplacement() +yPosition - 400));
+			}
+		}
 	}
 
 	public int getWidth() {

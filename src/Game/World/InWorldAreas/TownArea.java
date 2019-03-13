@@ -13,6 +13,7 @@ import Game.World.Walls;
 public class TownArea extends BaseArea{
 	Rectangle exit;
 	Rectangle playerRect;
+	TownEntity townEntity;
 	
 	public static boolean isInTown = false;
 	
@@ -119,7 +120,10 @@ public class TownArea extends BaseArea{
 		townWalls.add(new InWorldWalls(handler, 3370, 2760, 450, 150, "Wall"));	//Left House 2
 		townWalls.add(new InWorldWalls(handler, 3770, 2760, 250, 100, "Wall"));	//Right House 2
 		townWalls.add(new InWorldWalls(handler, 2780, 2220, 370, 350, "Wall"));	
-		townWalls.add(new InWorldWalls(handler, 3150, 2220, 350, 150, "Wall"));	
+		townWalls.add(new InWorldWalls(handler, 3150, 2220, 350, 150, "Wall"));
+
+		townWalls.add(new InWorldWalls(handler, 2470, 1910,115, 135, "Wall")); //Entity Wall
+
 		townWalls.add(new InWorldWalls(handler, 15,2025, 100, 300, "Exit"));	// Exit at Start
       						
 
