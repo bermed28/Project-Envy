@@ -104,7 +104,7 @@ public class TownEntity extends BaseDynamicEntity {
 		textFrame.setVisible(true);
 		textFrame.setLocation(350,500);
 		textFrame.setSize(700,200);
-		textFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		textFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		textPanel = new JPanel();
 		textPanel.setBackground(backgroundColor);

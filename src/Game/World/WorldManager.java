@@ -141,9 +141,6 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
 				circle.getYOffset(), 20, 20, "Door S"));
 
-		if(!skillUnlocked) {
-			worldWalls.add(new Walls(handler, 1662, 90, 50, 50, "Wall"));
-		}
 
 		///Left Mountains
 		worldWalls.add(new Walls(handler, 700, 180, 140, 200, "Wall"));
