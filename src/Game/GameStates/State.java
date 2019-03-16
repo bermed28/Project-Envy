@@ -1,5 +1,6 @@
 package Game.GameStates;
 
+import Main.GameSetUp;
 import Main.Handler;
 
 import java.awt.*;
@@ -18,6 +19,8 @@ public abstract class State {
     public static State getState(){
         return currentState;
     }
+    
+    
 
     //CLASS
 
@@ -26,6 +29,9 @@ public abstract class State {
     public State(Handler handler){
         this.handler = handler;
     }
+    
+    
+    
 
     public abstract void tick();
 

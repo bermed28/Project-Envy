@@ -25,6 +25,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	private Rectangle player;
 	private boolean canMove;
 	public static boolean checkInWorld;
+	public static boolean questActive = false;
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
 							InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
@@ -242,7 +243,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							GameSetUp.LOADING = true;
 							handler.setArea("Town");
 							
-	                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+	                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Town.mp3");
 	                        handler.getGame().getMusicHandler().play();
 	                        handler.getGame().getMusicHandler().setVolume(0.4);
 							

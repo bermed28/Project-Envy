@@ -2,6 +2,9 @@ package Game.Entities;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Comparator;
+
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
 import Game.Entities.Dynamics.Player;
@@ -13,13 +16,11 @@ public class EntityManager {
 	
 	protected Handler handler;
 	protected Player player;
-	
 	ArrayList<BaseEntity> entities;
 	
 	public EntityManager(Handler handler, Player player) {
 		this.handler = handler;
 		this.player = player;
-		
 		entities = new ArrayList<>();
 	}
 	
@@ -37,7 +38,7 @@ public class EntityManager {
 				CheckCollisions(e);
 				e.tick();
 			}
-		}
+		}		
 		
 		player.tick();
 		

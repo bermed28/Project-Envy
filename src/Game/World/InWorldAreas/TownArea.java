@@ -122,7 +122,7 @@ public class TownArea extends BaseArea{
 		townWalls.add(new InWorldWalls(handler, 2780, 2220, 370, 350, "Wall"));	
 		townWalls.add(new InWorldWalls(handler, 3150, 2220, 350, 150, "Wall"));
 
-		townWalls.add(new InWorldWalls(handler, 2470, 1910,115, 135, "Wall")); //Entity Wall
+		townWalls.add(new InWorldWalls(handler, 2500, 1910, 75, 125, "Wall")); //Entity Wall
 
 		townWalls.add(new InWorldWalls(handler, 15,2025, 100, 300, "Exit"));	// Exit at Start
       						
