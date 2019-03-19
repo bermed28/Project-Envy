@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import Game.Entities.Dynamics.Player;
+import Game.World.InWorldAreas.CaveArea;
 import Main.Handler;
 import Resources.Animation;
 import Resources.Images;
@@ -35,7 +36,7 @@ public class LightStatue extends BaseStaticEntity {
 
 	@Override
 	public void render(Graphics g) {
-		if(Player.isinArea)
+		if(CaveArea.isInCave)
 			g.drawImage(light.getCurrentFrame(), (int)(handler.getXInWorldDisplacement() + xPosition),(int)( handler.getYInWorldDisplacement() + yPosition), width, height, null);
 	}
 
