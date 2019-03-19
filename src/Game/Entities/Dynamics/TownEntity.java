@@ -103,7 +103,7 @@ public class TownEntity extends BaseDynamicEntity {
 		textFrame.setTitle("Unknown Wizard");
 		textFrame.setVisible(true);
 		textFrame.setLocation(350,500);
-		textFrame.setSize(700,200);
+		textFrame.setSize(750,200);
 		textFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		textPanel = new JPanel();

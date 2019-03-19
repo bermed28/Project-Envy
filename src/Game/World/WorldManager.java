@@ -42,10 +42,10 @@ public class WorldManager {
 		this.entityManager.AddEntity(new Tree(handler, 600, 600));
 		this.entityManager.AddEntity(new SmokeHouse(handler, 1153, 335));
 
-		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle, handler, 1700, 1700, "MapState", "Shadow Player", "None", "SkillUnlockBoss", 200, 100, 240, 2, 15, 10, 20, 10, 10, 10, 1, 5, "None", "Fire", null, null));
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,2400, -200,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
+		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle, handler, 1700, 1700, "MapState", "Shadow Player", "None", "SkillUnlockBoss", 200, 100, 240, 2, 15, 10, 20, 10, 10, 10, 1, 5, "None", "Fire", null, null));
 		
 		this.entityManager.AddEntity(circle);
 
@@ -165,7 +165,29 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 1420, 1901, 95, 130, "Door Boss Island Exit"));
 		
 		//Skill Boss Island Walls
-		
+		worldWalls.add(new Walls(handler, 1420, 1901, 345, 15, "Wall")); //Bridge
+		worldWalls.add(new Walls(handler, 1660, 1501, 15, 400, "Wall"));
+		worldWalls.add(new Walls(handler, 1660, 1540, 400, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 2060, 1340, 15, 200, "Wall"));
+		worldWalls.add(new Walls(handler, 2060, 1300, 1100, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 3120, 1300, 15, 250, "Wall"));
+		worldWalls.add(new Walls(handler, 3120, 1550, 300, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 3420, 1550, 15, 800, "Wall"));
+		worldWalls.add(new Walls(handler, 3420, 2350, 300, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 3720, 2350, 15, 520, "Wall"));
+		worldWalls.add(new Walls(handler, 3720, 2860, 320, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 4020, 2850, 15, 820, "Wall"));
+		worldWalls.add(new Walls(handler, 3520, 3650,  500, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 3520, 3650, 15, 400, "Wall"));
+		worldWalls.add(new Walls(handler, 2590, 4060, 950, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 2570, 3555, 15, 550, "Wall"));
+		worldWalls.add(new Walls(handler, 2295, 3545, 300, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 2285, 3145, 15, 400, "Wall"));
+		worldWalls.add(new Walls(handler, 1980, 3145, 300, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 1970, 2500, 15, 700, "Wall"));
+		worldWalls.add(new Walls(handler, 1660, 2500, 300, 15, "Wall"));
+		worldWalls.add(new Walls(handler, 1660, 2050, 15, 450, "Wall"));
+		worldWalls.add(new Walls(handler, 1420, 2045, 345, 15, "Wall")); //Bridge
 
 
 

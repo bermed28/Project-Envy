@@ -20,7 +20,7 @@ public class ShadowPlayer_Boss1 extends BaseHostileEntity implements Fighter{
         super(handler, yPosition, yPosition,state,name,area,animFrames);
         width = 30;
         height = 30;
-        speed = 0;
+        speed = 1;
         type="SkillUnlockBoss";
         this.setXOffset(xPosition);
         this.setYOffset(yPosition);
