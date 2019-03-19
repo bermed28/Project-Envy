@@ -1,7 +1,7 @@
 package Main;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
-import Game.Entities.Dynamics.EnemyOne;
+import Game.Entities.Dynamics.ShadowPlayer_Boss1;
 import Input.KeyManager;
 import Input.MouseManager;
 
@@ -134,7 +134,7 @@ public class Handler {
 									  double intl, double mr, double cons, double acc, double evs, double initiative,
 									  String Class, String Skill, String[] buffs, String[] debuffs){
 		if(typeOfEnemy.equals("EnemyOne")) {
-			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
+			ShadowPlayer_Boss1 n = new ShadowPlayer_Boss1(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
 			n.setClass(Class);
@@ -154,7 +154,7 @@ public class Handler {
 			n.setXp(xp);
 			return n;
 		}else{//default
-			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
+			ShadowPlayer_Boss1 n = new ShadowPlayer_Boss1(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
 			n.setClass(Class);
