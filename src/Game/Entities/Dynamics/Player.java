@@ -266,6 +266,21 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
 
 						}
+						if (w.getType().equals("Door Boss Island Exit")) {
+							checkInWorld = false;
+							handler.setXDisplacement(handler.getXDisplacement() + 100); 
+							handler.setYDisplacement(handler.getYDisplacement() - 100);
+							GameSetUp.LOADING = true;
+							handler.setArea("None");
+							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+							handler.getGame().getMusicHandler().play();
+							handler.getGame().getMusicHandler().setVolume(0.2);
+							
+
+							State.setState(handler.getGame().mapState);
+							System.out.println("Left Castle Island, Entered Main Island");
+							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+						}
 
 						if (w.getType().equals("Door S")) {
 							checkInWorld = true;
@@ -278,7 +293,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
 						}
 					}
-
 				}
 			}
 		} else
