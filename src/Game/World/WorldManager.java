@@ -153,6 +153,10 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler,1175, 410, 110, 130, "Door Town"));
 		worldWalls.add(new Walls(handler,1185, 545, 95, 110, "Door Town"));
 		worldWalls.add(new Walls(handler,1095, 545, 110, 130, "Door Town"));
+		
+		//Door to the Castle Island
+		worldWalls.add(new Walls(handler,100, 460, 95, 130, "Door Sub-Boss"));
+
 
 
 
