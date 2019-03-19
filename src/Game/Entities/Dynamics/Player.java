@@ -268,8 +268,8 @@ public class Player extends BaseDynamicEntity implements Fighter {
 						}
 						if (w.getType().equals("Door Boss Island Exit")) {
 							checkInWorld = false;
-							handler.setXDisplacement(handler.getXDisplacement() + 100); 
-							handler.setYDisplacement(handler.getYDisplacement() - 100);
+							handler.setXDisplacement(handler.getXDisplacement()  + 1200); 
+							handler.setYDisplacement(handler.getYDisplacement() + 1400);
 							GameSetUp.LOADING = true;
 							handler.setArea("None");
 							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");

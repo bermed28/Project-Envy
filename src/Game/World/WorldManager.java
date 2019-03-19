@@ -163,6 +163,9 @@ public class WorldManager {
 		//Door to the Castle Island & Back to Main Island
 		worldWalls.add(new Walls(handler,100, 460, 95, 130, "Door Sub-Boss"));
 		worldWalls.add(new Walls(handler, 1420, 1901, 95, 130, "Door Boss Island Exit"));
+		
+		//Skill Boss Island Walls
+		
 
 
 
