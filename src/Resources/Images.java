@@ -40,6 +40,8 @@ public class Images {
 	public static BufferedImage projectTitle;
 	public static BufferedImage envyTitle;
 	public static BufferedImage ghost;
+	public static SpriteSheet boss1Sprite;
+	public static BufferedImage boss1OverWorld;
 	public static BufferedImage[] townEntity;
 
 
@@ -152,7 +154,7 @@ public class Images {
 			smokeHouseSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/House.png")));
 			statueSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/statueSheet.png")));
 			townEntitySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/townEntity.png")));
-
+			boss1Sprite = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Boss1.png")));
 			
 			iceSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/iceSkill.png")));
 			fireSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/fireSkill.png")));
@@ -206,6 +208,8 @@ public class Images {
 			Attack[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Attack.png"));
 			Defend[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Defend.png"));
 			Skill[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Skill.png"));
+			
+			boss1OverWorld = boss1Sprite.crop(23, 14, 62, 77);
 
 			smokeHouse[0] = smokeHouseSheet.crop(20, 7, 19, 20);
 			smokeHouse[1] = smokeHouseSheet.crop(68, 7, 19, 20);
