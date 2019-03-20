@@ -164,7 +164,7 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler,100, 460, 95, 130, "Door Sub-Boss"));
 		worldWalls.add(new Walls(handler, 1420, 1901, 95, 130, "Door Boss Island Exit"));
 		
-		//Skill Boss Island Walls
+		//Skill Boss Outer Island Walls
 		worldWalls.add(new Walls(handler, 1420, 1901, 345, 15, "Wall")); //Bridge
 		worldWalls.add(new Walls(handler, 1660, 1501, 15, 400, "Wall"));
 		worldWalls.add(new Walls(handler, 1660, 1540, 400, 15, "Wall"));
@@ -188,10 +188,19 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 1660, 2500, 300, 15, "Wall"));
 		worldWalls.add(new Walls(handler, 1660, 2050, 15, 450, "Wall"));
 		worldWalls.add(new Walls(handler, 1420, 2045, 345, 15, "Wall")); //Bridge
-
-
-
 		
+		//Skill Boss Island Inner Structure Walls
+		worldWalls.add(new Walls(handler, 2020, 1760, 150, 200, "Wall")); 
+		worldWalls.add(new Walls(handler, 2120, 1960, 150, 55, "Wall")); 
+		worldWalls.add(new Walls(handler, 2130, 1660, 150, 55, "Wall")); 
+		worldWalls.add(new Walls(handler, 2220, 1530, 780, 630, "Wall")); 
+		worldWalls.add(new Walls(handler, 3020, 1760, 150, 200, "Wall"));
+		worldWalls.add(new Walls(handler, 2400, 2150, 390, 245, "Wall"));
+		worldWalls.add(new Walls(handler, 2100, 2750, 180, 280, "Wall"));
+		worldWalls.add(new Walls(handler, 3120, 3230, 330, 130, "Wall"));
+		worldWalls.add(new Walls(handler, 3320, 3550, 75, 245, "Wall"));
+		worldWalls.add(new Walls(handler, 3420, 2520, 170, 95, "Wall"));
+		worldWalls.add(new Walls(handler, 1660, 2050, 15, 450, "Wall")); 	
 	}
 
 	public void collidedWithWall() {
