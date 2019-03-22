@@ -118,7 +118,6 @@ public class MouseManager implements MouseListener,MouseMotionListener{
 
 		public Circle(int x, int y, Handler handler) {
 			super(handler, x, y);
-			
 			spot = random.nextInt(4);
 			this.setXOffset(xPos[spot]);
 			this.setYOffset(yPos[spot]);

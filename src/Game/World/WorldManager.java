@@ -1,9 +1,8 @@
 package Game.World;
 
 import Game.Entities.EntityManager;
-import Game.Entities.Dynamics.Player;
+import Game.Entities.Dynamics.Boss1;
 import Game.Entities.Statics.CaveBlockerEntity;
-import Game.Entities.Dynamics.ShadowPlayer_Boss1;
 import Game.Entities.Statics.SmokeHouse;
 import Game.Entities.Statics.Tree;
 import Input.MouseManager.Circle;
@@ -19,6 +18,7 @@ public class WorldManager {
 
 	protected Handler handler;
 	public boolean skillUnlocked = false;
+	private boolean isBossDead = true;
 	private Circle circle;
 	public EntityManager entityManager;
 	Animation animation;
@@ -45,11 +45,11 @@ public class WorldManager {
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,2400, -200,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
-		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle, handler, 1700, 1700, "MapState", "Shadow Player", "None", "SkillUnlockBoss", 200, 100, 240, 2, 15, 10, 20, 10, 10, 10, 1, 5, "None", "Fire", null, null));
-		
+		this.entityManager.AddEntity(handler.newEnemy(Images.boss1OverWorld, handler, 3500, 2450, "MapState", "Shadow Player", "None", "Boss1", 200, 200, 340, 2, 20, 10, 20, 15, 15, 10, 1, 5, "None", "Fire", null, null));
 		this.entityManager.AddEntity(circle);
 
 		AddWalls();
+		
 
 	}
 
@@ -141,9 +141,9 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 1980, -350, 50, 50, "Wall"));
 		worldWalls.add(new Walls(handler, 1950, -250, 200, 100, "Wall"));
 		
-		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
-				circle.getYOffset(), 20, 20, "Door S"));
-		
+		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) circle.getYOffset(), 20, 20, "Door S"));
+
+
 		if(!skillUnlocked) {
 			worldWalls.set(worldWalls.size() - 1, new Walls(handler, 1662, 55, 50, 75, "Wall"));
 		} 
@@ -240,7 +240,7 @@ public class WorldManager {
 
 	public void checkForSkill() {
 		
-		if(!handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+		if(!handler.getEntityManager().getPlayer().getSkill().equals("none") && Boss1.isDead) {
 			skillUnlocked = true;
 			this.entityManager.RemoveEntity(new CaveBlockerEntity(handler, 600, 600));
 			worldWalls.remove(worldWalls.size() - 1);
@@ -250,5 +250,6 @@ public class WorldManager {
 		this.entityManager.AddEntity(new CaveBlockerEntity(handler, 600, 600));
 		return;
 	}
-
+	
+	
 }

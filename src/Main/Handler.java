@@ -1,7 +1,8 @@
 package Main;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
-import Game.Entities.Dynamics.ShadowPlayer_Boss1;
+import Game.Entities.Dynamics.Boss1;
+import Game.Entities.Dynamics.EnemyOne;
 import Input.KeyManager;
 import Input.MouseManager;
 
@@ -27,7 +28,7 @@ public class Handler {
 	private WorldManager worldManager;
 
 	int xOverWorldDisplacement, yOverWorldDisplacement,
-		xInWorldDisplacement, yInWorldDisplacement;
+	xInWorldDisplacement, yInWorldDisplacement;
 
 	private String Area="None";
 
@@ -35,11 +36,11 @@ public class Handler {
 
 	public Handler() {
 
-/*      If your game display seems zoomed out, usually the case on 4k screens, 
- * 		remove the comments on the following two lines of code and comment out the height and width declaration in this method*/
-//		height =( DEFAULTHEIGHT/1080)*1080;
-//		width = (DEFAULTWIDTH/1920)*1920;
-		
+		/*      If your game display seems zoomed out, usually the case on 4k screens, 
+		 * 		remove the comments on the following two lines of code and comment out the height and width declaration in this method*/
+		//		height =( DEFAULTHEIGHT/1080)*1080;
+		//		width = (DEFAULTWIDTH/1920)*1920;
+
 		height = DEFAULTHEIGHT;
 		width = DEFAULTWIDTH;
 
@@ -85,7 +86,7 @@ public class Handler {
 	public WorldManager getWorldManager() {
 		return worldManager;
 	}
-	
+
 	// For OverWorld Map Movement
 	public void setXDisplacement(int xDis) {
 		this.xOverWorldDisplacement = xDis;
@@ -102,7 +103,7 @@ public class Handler {
 	public int getYDisplacement() {
 		return this.yOverWorldDisplacement;
 	}
-	
+
 	// For InWorld Map Movement
 	public int getXInWorldDisplacement() {
 		return xInWorldDisplacement;
@@ -130,11 +131,11 @@ public class Handler {
 
 
 	public BaseHostileEntity newEnemy(BufferedImage[] images,Handler handler, int xPosition, int yPosition, String state, String name, String area,
-									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
-									  double intl, double mr, double cons, double acc, double evs, double initiative,
-									  String Class, String Skill, String[] buffs, String[] debuffs){
+			String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
+			double intl, double mr, double cons, double acc, double evs, double initiative,
+			String Class, String Skill, String[] buffs, String[] debuffs){
 		if(typeOfEnemy.equals("EnemyOne")) {
-			ShadowPlayer_Boss1 n = new ShadowPlayer_Boss1(handler, xPosition, yPosition, state, name, area,images);
+			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
 			n.setClass(Class);
@@ -143,7 +144,26 @@ public class Handler {
 			n.setDefense(def);
 			n.setEvs(evs);
 			n.setHealth(hp);
-            n.setMaxHealth(hp);
+			n.setMaxHealth(hp);
+			n.setInitiative(initiative);
+			n.setIntl(intl);
+			n.setMr(mr);
+			n.setLvl(lvl);
+			n.setMana(mana);
+			n.setSkill(Skill);
+			n.setStr(str);
+			n.setXp(xp);
+			return n;
+		}else if(typeOfEnemy.equals("Boss1")){
+			Boss1 n = new Boss1(handler, yPosition, yPosition, state, name, area, images);
+			n.setAcc(acc);
+			n.setBuffs(buffs);
+			n.setClass(Class);
+			n.setCons(cons);
+			n.setDebuffs(debuffs);
+			n.setDefense(def);
+			n.setEvs(evs);
+			n.setHealth(hp);
 			n.setInitiative(initiative);
 			n.setIntl(intl);
 			n.setMr(mr);
@@ -154,7 +174,7 @@ public class Handler {
 			n.setXp(xp);
 			return n;
 		}else{//default
-			ShadowPlayer_Boss1 n = new ShadowPlayer_Boss1(handler, xPosition, yPosition, state, name, area,images);
+			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
 			n.setClass(Class);
@@ -163,7 +183,7 @@ public class Handler {
 			n.setDefense(def);
 			n.setEvs(evs);
 			n.setHealth(hp);
-            n.setMaxHealth(hp);
+			n.setMaxHealth(hp);
 			n.setInitiative(initiative);
 			n.setIntl(intl);
 			n.setMr(mr);

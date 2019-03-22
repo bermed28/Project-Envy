@@ -41,7 +41,7 @@ public class Images {
 	public static BufferedImage envyTitle;
 	public static BufferedImage ghost;
 	public static SpriteSheet boss1Sprite;
-	public static BufferedImage boss1OverWorld;
+	public static BufferedImage[] boss1OverWorld;
 	public static BufferedImage[] townEntity;
 
 
@@ -62,6 +62,7 @@ public class Images {
 	public static BufferedImage QST;
 
 
+	public static BufferedImage boss1Background;
 	public static BufferedImage[] battleBackground;
 	public static BufferedImage[] Attack;
 	public static BufferedImage[] Defend;
@@ -144,6 +145,7 @@ public class Images {
 		smokeHouse = new BufferedImage[7];
 		lightStatue = new BufferedImage[10];
 		townEntity = new BufferedImage[4];
+		boss1OverWorld = new BufferedImage[5];
 
 		try {
 			
@@ -199,7 +201,8 @@ public class Images {
 			titleChoose[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Title2.png"));
 			StatBut[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Stats.png"));
 			StatBut[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Stats2.png"));
-
+			
+			boss1Background = ImageIO.read(getClass().getResourceAsStream("/Worlds/boss1Background.jpg"));
 			battleBackground[0] = ImageIO.read(getClass().getResourceAsStream("/Sheets/mountain river.jpg"));
 			battleBackground[1] = ImageIO.read(getClass().getResourceAsStream("/Sheets/forest.jpg"));
 			battleBackground[2] = ImageIO.read(getClass().getResourceAsStream("/PixelEffects/README/SArea.png"));
@@ -209,7 +212,12 @@ public class Images {
 			Defend[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Defend.png"));
 			Skill[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Skill.png"));
 			
-			boss1OverWorld = boss1Sprite.crop(23, 14, 62, 77);
+			boss1OverWorld[0] = boss1Sprite.crop(510, 10, 64, 83);
+			boss1OverWorld[1] = boss1Sprite.crop(393, 10, 63, 82);
+			boss1OverWorld[2] = boss1Sprite.crop(273, 10, 63, 84);
+			boss1OverWorld[3] = boss1Sprite.crop(152, 10, 63, 85);
+			boss1OverWorld[4] = boss1Sprite.crop(32, 4, 65, 89);
+					
 
 			smokeHouse[0] = smokeHouseSheet.crop(20, 7, 19, 20);
 			smokeHouse[1] = smokeHouseSheet.crop(68, 7, 19, 20);

@@ -2,15 +2,13 @@ package Game.Entities;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Comparator;
-
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
 import Game.Entities.Dynamics.Player;
 import Game.Entities.Statics.BaseStaticEntity;
 import Main.GameSetUp;
 import Main.Handler;
+
 
 public class EntityManager {
 	
@@ -85,6 +83,8 @@ public class EntityManager {
 	public void RemoveEntity(BaseEntity e) {
 		entities.remove(e);
 	}
+	
+	
 
 	public Player getPlayer() {
 		return player;
