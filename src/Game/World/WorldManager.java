@@ -17,8 +17,7 @@ import java.util.ArrayList;
 public class WorldManager {
 
 	protected Handler handler;
-	public boolean skillUnlocked = false;
-	private boolean isBossDead = true;
+	public static boolean skillUnlocked = false;
 	private Circle circle;
 	public EntityManager entityManager;
 	Animation animation;
@@ -145,7 +144,7 @@ public class WorldManager {
 
 
 		if(!skillUnlocked) {
-			worldWalls.set(worldWalls.size() - 1, new Walls(handler, 1662, 55, 50, 75, "Wall"));
+			worldWalls.set(worldWalls.size() - 1, new Walls(handler, 1662, 67, 50, 75, "Wall"));
 		} 
 		
 		///Left Mountains
