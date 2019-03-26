@@ -19,8 +19,8 @@ public class TownEntity extends BaseDynamicEntity {
 	private Rectangle collision;
 
 	private Animation townEntity;
-	public boolean quest = false;
-	public boolean postBossQuest;
+	public static boolean quest = false;
+	public static boolean postBossQuest;
 	private static final int DEFAULT_WIDTH = 70, DEFAULT_HEIGHT = 150;
 
 	private String[] questDialogue = {"I am a shadow, the true self.", "To search for the truth,",
@@ -41,13 +41,13 @@ public class TownEntity extends BaseDynamicEntity {
 
 	Color backgroundColor = new Color(152,200,120);
 
-	private boolean interaction;
+	public static boolean interaction;
 
 	private JFrame textFrame1;
 
 	private JPanel textPanel1;
 
-	private boolean postBossInteraction;
+	public static boolean postBossInteraction;
 
 	public TownEntity(Handler handler, int xPosition, int yPosition, BufferedImage[] animFrames) {
 		super(handler, xPosition, yPosition, animFrames);

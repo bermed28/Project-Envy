@@ -89,8 +89,8 @@ public class GameSetUp implements Runnable {
         musicHandler.setVolume(.10);
 
     }
-
-
+    
+    
     public synchronized void start(){
         if(running)
             return;
@@ -198,6 +198,7 @@ public class GameSetUp implements Runnable {
     public void reStart() {
         this.mapState = new MapState(handler);
         this.inWorldState  = new InWorldState(handler);
+    
     }
 
     public DisplayScreen getDisplay() {

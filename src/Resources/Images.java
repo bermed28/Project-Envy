@@ -41,7 +41,9 @@ public class Images {
 	public static BufferedImage envyTitle;
 	public static BufferedImage ghost;
 	public static SpriteSheet boss1Sprite;
+	public static SpriteSheet FinalBossSprite;
 	public static BufferedImage[] boss1OverWorld;
+	public static BufferedImage[] FinalBoss;
 	public static BufferedImage[] townEntity;
 
 
@@ -146,6 +148,7 @@ public class Images {
 		lightStatue = new BufferedImage[10];
 		townEntity = new BufferedImage[4];
 		boss1OverWorld = new BufferedImage[5];
+		FinalBoss = new BufferedImage[8];
 
 		try {
 			
@@ -157,6 +160,8 @@ public class Images {
 			statueSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/statueSheet.png")));
 			townEntitySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/townEntity.png")));
 			boss1Sprite = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Boss1.png")));
+			FinalBossSprite = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/FinalBoss.png")));
+
 			
 			iceSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/iceSkill.png")));
 			fireSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/fireSkill.png")));
@@ -217,7 +222,16 @@ public class Images {
 			boss1OverWorld[2] = boss1Sprite.crop(273, 10, 63, 84);
 			boss1OverWorld[3] = boss1Sprite.crop(152, 10, 63, 85);
 			boss1OverWorld[4] = boss1Sprite.crop(32, 4, 65, 89);
-					
+			
+			FinalBoss[0] = FinalBossSprite.crop(0, 0, 120, 103);
+			FinalBoss[1] = FinalBossSprite.crop(121, 0, 124, 102);
+			FinalBoss[2] = FinalBossSprite.crop(244, 0, 122, 104);
+			FinalBoss[3] = FinalBossSprite.crop(367, 0, 121, 103);
+			FinalBoss[4] = FinalBossSprite.crop(0, 107, 123, 113);
+			FinalBoss[5] = FinalBossSprite.crop(112, 110, 122, 105);
+			FinalBoss[6] = FinalBossSprite.crop(243, 104, 124, 116);		
+			FinalBoss[7] = FinalBossSprite.crop(366, 109, 122, 105);
+
 
 			smokeHouse[0] = smokeHouseSheet.crop(20, 7, 19, 20);
 			smokeHouse[1] = smokeHouseSheet.crop(68, 7, 19, 20);
