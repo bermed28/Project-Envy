@@ -7,6 +7,7 @@ import Main.Handler;
 import Resources.Images;
 import Display.UI.UIManager;
 import Display.UI.Selector;
+import Game.Entities.Dynamics.TownEntity;
 
 import java.awt.*;
 import java.util.Random;
@@ -31,7 +32,6 @@ public class MenuState extends State {
 	public int EyPos, NyPos, VyPos, YyPos; 
 	public int menuSpeed = 3;
 	public int imageSpeed = 15;
-
 	public boolean eDown , nDown, vDown, yDown;
 	Selector selector = new Selector(this.handler);
 	private boolean statics=false;
@@ -55,6 +55,7 @@ public class MenuState extends State {
 
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUimanager(uiManager);
+		
 
 	}
 

@@ -72,7 +72,7 @@ public class FightState extends InWorldState{
 		//enemy info square coordinate
 		entityInfoX[1] = handler.getWidth() * 14/20 + 4;
 
-		if(enemy.type.equals("Boss1")) {
+		if(enemy.type.equals("Boss1") || enemy.type.equals("BonusBoss")) {
 			handler.getGame().getMusicHandler().set_changeMusic("res/music/Boss Music.mp3");
 			handler.getGame().getMusicHandler().play();
 			handler.getGame().getMusicHandler().setVolume(0.2);
@@ -91,7 +91,7 @@ public class FightState extends InWorldState{
 
 		this.enemy.lvlAdjust();
 		playerRect = new Rectangle( (int) handler.getWidth() / 5, entityY, 100, 100);
-		enemyRect = new Rectangle((int) handler.getWidth() * 4/ 5 - 70,entityY, 70, 70);
+		enemyRect = new Rectangle((int) handler.getWidth() * 4/ 5 - 70,entityY - 80, 120, 160);
 
 		setUiManager();
 		backgroundSelect(prevState);
@@ -298,6 +298,8 @@ public class FightState extends InWorldState{
 		g2.drawImage(handler.getEntityManager().getPlayer().getIdle(), playerRect.x, playerRect.y, playerRect.width, playerRect.height, null);
 		g2.setColor(Color.BLACK);
 		g2.drawImage(enemy.getIdle(), enemyRect.x, enemyRect.y, enemyRect.width, enemyRect.height, null);
+		
+		
 	}
 
 	private void drawDebug(Graphics g) {
