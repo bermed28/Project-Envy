@@ -251,19 +251,24 @@ public class Player extends BaseDynamicEntity implements Fighter {
 						}
 
 						if (w.getType().equals("Door Sub-Boss")) {
-							checkInWorld = false;
-							handler.setXDisplacement(handler.getXDisplacement() - 1400); 
-							handler.setYDisplacement(handler.getYDisplacement() - 1425);
-							GameSetUp.LOADING = true;
-							handler.setArea("None");
-							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
-							handler.getGame().getMusicHandler().play();
-							handler.getGame().getMusicHandler().setVolume(0.2);
-							
+							if(TownEntity.quest == false) {
+								PushPlayerBack();
+							}
+							else {
+								checkInWorld = false;
+								handler.setXDisplacement(handler.getXDisplacement() - 1400); 
+								handler.setYDisplacement(handler.getYDisplacement() - 1425);
+								GameSetUp.LOADING = true;
+								handler.setArea("None");
+								handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+								handler.getGame().getMusicHandler().play();
+								handler.getGame().getMusicHandler().setVolume(0.2);
 
-							State.setState(handler.getGame().mapState);
-							System.out.println("Left Main Island, Entered Castle Island");
-							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+
+								State.setState(handler.getGame().mapState);
+								System.out.println("Left Main Island, Entered Castle Island");
+								setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+							}
 
 						}
 						if (w.getType().equals("Door Boss Island Exit")) {
@@ -275,7 +280,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
 							handler.getGame().getMusicHandler().play();
 							handler.getGame().getMusicHandler().setVolume(0.2);
-							
+
 
 							State.setState(handler.getGame().mapState);
 							System.out.println("Left Castle Island, Entered Main Island");

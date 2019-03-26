@@ -19,7 +19,7 @@ public class TownEntity extends BaseDynamicEntity {
 	private Rectangle collision;
 
 	private Animation townEntity;
-	public static boolean quest = false;
+	public static boolean quest;
 	public static boolean postBossQuest;
 	private static final int DEFAULT_WIDTH = 70, DEFAULT_HEIGHT = 150;
 
