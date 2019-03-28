@@ -69,7 +69,7 @@ public class BonusBoss extends BaseHostileEntity implements Fighter {
 	}
 	
 	//FIGHT STATS
-	double health=300,mana=200,xp=04,lvl=4,defense=36,str=34,intl=60, mr = 30,cons=60,acc=30,evs=3,initiative=3,maxHealth=300;
+	double health=300,mana=200,xp=04,lvl=4,defense = 26,str = 24,intl = 30, mr = 30,cons=60,acc=30,evs = 3,initiative = 3,maxHealth = 300;
 	String Class = "Boss",skill = "Fire";
 	String[] buffs = {},debuffs = {};
 

@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.*;
 
+import Game.World.WorldManager;
 import Game.World.InWorldAreas.TownArea;
 
 
@@ -19,8 +20,8 @@ public class TownEntity extends BaseDynamicEntity {
 	private Rectangle collision;
 
 	private Animation townEntity;
-	public static boolean quest;
-	public static boolean postBossQuest;
+	public static boolean quest = false;
+	public static boolean postBossQuest = false;
 	private static final int DEFAULT_WIDTH = 70, DEFAULT_HEIGHT = 150;
 
 	private String[] questDialogue = {"I am a shadow, the true self.", "To search for the truth,",
@@ -37,17 +38,18 @@ public class TownEntity extends BaseDynamicEntity {
 	private JLabel wizardInstructions;
 	private JLabel wizardSkill;
 
-	private int count = 0;
 
 	Color backgroundColor = new Color(152,200,120);
 
-	public static boolean interaction;
+	public static boolean interaction = false;
 
 	private JFrame textFrame1;
 
 	private JPanel textPanel1;
 
-	public static boolean postBossInteraction;
+
+
+	public static boolean postBossInteraction = false;
 
 	public TownEntity(Handler handler, int xPosition, int yPosition, BufferedImage[] animFrames) {
 		super(handler, xPosition, yPosition, animFrames);
@@ -67,25 +69,11 @@ public class TownEntity extends BaseDynamicEntity {
 	@Override
 	public void tick() {
 		townEntity.tick();
-		if(interaction) {
-			if(handler.getKeyManager().attbut) {
-				quest = true;
-				textQuest();
-				interaction = false;
-			} 
-		} else {
-			if(postBossInteraction) {
-				if(handler.getKeyManager().attbut) {
-					if(Boss1.isDead) {
-						postBossQuest = true;
-						textSkill();
-						postBossInteraction = false;
-						return;
 
-					}
-				}
-			}
-		}
+		if(interaction == true) {
+			textQuest();
+			interaction = false;
+		} 
 
 	}
 
@@ -99,26 +87,28 @@ public class TownEntity extends BaseDynamicEntity {
 
 			g.drawImage(townEntity.getCurrentFrame(),(int)(handler.getXInWorldDisplacement() + xPosition + 850),
 					(int)(handler.getYInWorldDisplacement() + yPosition - 400),this.width,this.height,null);
+			if(collision.intersects(handler.getEntityManager().getPlayer().getCollision()) && !handler.getKeyManager().attbut && !quest && !Boss1.isDead){
+				g.setColor(Color.black);
+				g.setFont(new Font("IMPACT", Font.BOLD, 25));
+				g.drawString("The Wizard has a message for you. Press 'E'", (int) (handler.getXInWorldDisplacement() + xPosition + 780),
+						(int) (handler.getYInWorldDisplacement() +yPosition - 200));
 
-			if(collision.intersects(handler.getEntityManager().getPlayer().getCollision()) && handler.getEntityManager().getPlayer().getLvl() < 2){
-				if(!quest) {
-					g.setColor(Color.black);
-					g.setFont(new Font("IMPACT", Font.BOLD, 25));
-					g.drawString("The Wizard has a message for you. Press 'E'", (int) (handler.getXInWorldDisplacement() + xPosition + 780),
-							(int) (handler.getYInWorldDisplacement() +yPosition - 200));
-					interaction = true;
-				}
-			} else if(Boss1.isDead) {
-				if(collision.intersects(handler.getEntityManager().getPlayer().getCollision())) {
-					if(!postBossQuest) {
-						g.setColor(Color.black);
-						g.setFont(new Font("IMPACT", Font.BOLD, 25));
-						g.drawString("The Wizard has another message for you. Press 'E'", (int) (handler.getXInWorldDisplacement() + xPosition + 780),
-								(int) (handler.getYInWorldDisplacement() +yPosition - 200));
-						postBossInteraction = true;
-					}
-				} 
+			} 
+			if(collision.intersects(handler.getEntityManager().getPlayer().getCollision()) && handler.getKeyManager().attbut == true && !quest && !Boss1.isDead) {
+				interaction = true;
+				quest = true;
+
 			}
+			if(collision.intersects(handler.getEntityManager().getPlayer().getCollision()) && handler.getKeyManager().attbut == true && Boss1.isDead && !postBossInteraction) {
+				g.setColor(Color.black);
+				g.setFont(new Font("IMPACT", Font.BOLD, 25));
+				g.drawString("You really are strong, your new power is the ability to wield Ice", (int) (handler.getXInWorldDisplacement() + xPosition + 780),
+						(int) (handler.getYInWorldDisplacement() +yPosition - 200));
+				WorldManager.skillUnlocked = true;
+				handler.getEntityManager().getPlayer().setSkill("Freeze");
+				
+
+			} 
 		}
 	}
 
@@ -147,34 +137,13 @@ public class TownEntity extends BaseDynamicEntity {
 		textPanel.setBackground(backgroundColor);
 
 		for (int i = 0; i <= 5; i++) {
-			wizardInstructions = new JLabel(questDialogue[count]);
+			wizardInstructions = new JLabel(questDialogue[i]);
 			wizardInstructions.setFont(new Font("IMPACT",Font.ITALIC,15));
 			textPanel.add(wizardInstructions);
-			count++;
 		}
 		textFrame.add(textPanel); 
 	}
 
-	public void textSkill() {
-		handler.getEntityManager().getPlayer().setSkill("Freeze");
-		textFrame1 = new JFrame();
-		textFrame1.setIconImage(Images.townEntity[0]);
-		textFrame1.setTitle("Unknown Wizard");
-		textFrame1.setVisible(true);
-		textFrame1.setLocation(350,500);
-		textFrame1.setSize(750,200);
-		textFrame1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-		textPanel1 = new JPanel();
-		textPanel1.setBackground(backgroundColor);
-
-		for (int i = 0; i <= 4; i++) {
-			wizardSkill = new JLabel(skillUnlock[i]);
-			wizardSkill.setFont(new Font("IMPACT",Font.ITALIC,15));
-			textPanel1.add(wizardSkill);
-		}
-		textFrame1.add(textPanel1); 
-	}
 }
 
 

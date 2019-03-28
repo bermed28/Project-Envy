@@ -33,6 +33,7 @@ public class Boss1 extends BaseHostileEntity implements Fighter {
 		if(Player.isinArea) {
 			super.tick();
 		}
+		
 	}
 	@Override
 	public void render(Graphics g) {

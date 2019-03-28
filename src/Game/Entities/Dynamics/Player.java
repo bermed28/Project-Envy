@@ -360,9 +360,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 							if (iw.getType().equals("Exit")) {
 
-								handler.setXDisplacement(handler.getXDisplacement() + 70); // Sets the player x/y
-								// outside the
-								handler.setYDisplacement(handler.getYDisplacement() - 70); // Town
+								handler.setXDisplacement(handler.getXDisplacement() - 250); // Sets the player x/y
+																						   // outside the
+								handler.setYDisplacement(250); // Town
 
 							}
 
