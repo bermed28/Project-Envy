@@ -1,6 +1,7 @@
 package Game.GameStates;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
+import Game.Entities.Dynamics.BonusBoss;
 import Game.Entities.Dynamics.Boss1;
 import Game.Entities.Dynamics.Player;
 import Main.GameSetUp;
@@ -248,6 +249,9 @@ public class FightState extends InWorldState{
 				}
 				if(enemy.type.equals("Boss1")) {
 					Boss1.isDead = true;
+				}
+				if(enemy.type.equals("BonusBoss")) {
+					BonusBoss.isDead = true;
 				}
 				enemy.kill();
 

@@ -37,8 +37,8 @@ public class CaveArea extends BaseArea {
 
         
 
-        this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,700, 2000,"InWorldState","Sergio","Cave","EnemyOne",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
-        this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,3000, 1000,"InWorldState","Cave Dweller","Cave","EnemyOne",100,25,60,10,1,12,20,10,20,13,1,10,"None","Thunder",null,null)); // lvl 1 difficulty
+        this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,700, 2000,"InWorldState","Corrupted Pikachu","Cave","EnemyOne",150,25,100,1,8,12,20,10,20,10,1,10,"None","Fire",null,null)); //lvl 2 difficulty
+        this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,3000, 1000,"InWorldState","Cave Dweller","Cave","EnemyOne",100,25,90,10,1,12,20,10,20,13,1,10,"None","Fire",null,null)); // lvl 1 difficulty
 		this.entityManager.AddEntity(new BonusBoss(handler, 2780, 1770, "InWorldState", "Izanagi", "Cave", Images.FinalBoss));
         this.entityManager.AddEntity(new LightStatue (handler, 2080, 1770));
         

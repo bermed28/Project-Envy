@@ -215,6 +215,8 @@ public class Player extends BaseDynamicEntity implements Fighter {
 						canMove = true;
 
 						if (w.getType().equals("Door Cave")) {
+							handler.getEntityManager().getPlayer().setHealth(maxHealth);
+							handler.getEntityManager().getPlayer().setMana(maxMana);
 							checkInWorld = true;
 							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
 							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
@@ -255,6 +257,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 								PushPlayerBack();
 							}
 							else {
+								handler.getEntityManager().getPlayer().setHealth(maxHealth);
+								handler.getEntityManager().getPlayer().setMana(maxMana);
+
 								checkInWorld = false;
 								handler.setXDisplacement(handler.getXDisplacement() - 1400); 
 								handler.setYDisplacement(handler.getYDisplacement() - 1425);
@@ -280,7 +285,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
 							handler.getGame().getMusicHandler().play();
 							handler.getGame().getMusicHandler().setVolume(0.2);
-
 
 							State.setState(handler.getGame().mapState);
 							System.out.println("Left Castle Island, Entered Main Island");
@@ -312,28 +316,26 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 							if (iw.getType().equals("Start Exit")) {
 
-								handler.setXDisplacement(handler.getXDisplacement() - 450); // Sets the player x/y
-								// outside the
-								handler.setYDisplacement(handler.getYDisplacement() + 400); // Cave
+								State.setState(handler.getGame().menuState);
 
 							} else if (iw.getType().equals("End Exit")) {
+								GameSetUp.LOADING = true;
+								State.setState(handler.getGame().menuState);
+								handler.setArea("None");
 
-								handler.setXDisplacement(InWorldState.caveArea.oldPlayerXCoord);// Sets the player x/y
-								handler.setYDisplacement(InWorldState.caveArea.oldPlayerYCoord);// outside theCave
+								handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+								handler.getGame().getMusicHandler().play();
+								handler.getGame().getMusicHandler().setVolume(0.2);
+
+								State.setState(handler.getGame().mapState);
+								CaveArea.isInCave = false;
+								checkInWorld = false;
+								System.out.println("Left Cave");
+								setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
 							}
 
-							GameSetUp.LOADING = true;
-							handler.setArea("None");
 
-							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
-							handler.getGame().getMusicHandler().play();
-							handler.getGame().getMusicHandler().setVolume(0.2);
 
-							State.setState(handler.getGame().mapState);
-							CaveArea.isInCave = false;
-							checkInWorld = false;
-							System.out.println("Left Cave");
-							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
 						}
 					}
 				}
@@ -361,7 +363,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							if (iw.getType().equals("Exit")) {
 
 								handler.setXDisplacement(handler.getXDisplacement() - 250); // Sets the player x/y
-																						   // outside the
+								// outside the
 								handler.setYDisplacement(250); // Town
 
 							}

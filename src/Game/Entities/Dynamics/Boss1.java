@@ -14,7 +14,7 @@ import Resources.Images;
 
 public class Boss1 extends BaseHostileEntity implements Fighter {
 
-	Rectangle finalBoss;
+	Rectangle boss1;
 	public static boolean isDead;
 	
 	public Boss1(Handler handler, int xPosition, int yPosition, String state, String name, String area,
@@ -22,7 +22,7 @@ public class Boss1 extends BaseHostileEntity implements Fighter {
 		super(handler, xPosition, yPosition, state, name, area, animFrames);
 		type = "Boss1";
 		this.foundState = state;
-		finalBoss = new Rectangle();
+		boss1 = new Rectangle();
 		this.setXOffset(xPosition);
 		this.setYOffset(yPosition);
 	}
@@ -40,25 +40,25 @@ public class Boss1 extends BaseHostileEntity implements Fighter {
 		Graphics2D g2 = (Graphics2D) g;
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(nextArea);
-			g2.draw(finalBoss);
+			g2.draw(boss1);
 		}
 		
 		if(handler.getArea().equals(this.Area)) {
             if (!Player.checkInWorld) {
-                finalBoss = new Rectangle((int) (handler.getXDisplacement() + getXOffset()) + 120,
+                boss1 = new Rectangle((int) (handler.getXDisplacement() + getXOffset()) + 120,
                         (int) (handler.getYDisplacement() + getYOffset()) - 90, 60, 110);
 
             } else {
-                finalBoss = new Rectangle((int) (handler.getXInWorldDisplacement() + getXOffset()),
+                boss1 = new Rectangle((int) (handler.getXInWorldDisplacement() + getXOffset()),
                         (int) (handler.getYInWorldDisplacement() + getYOffset()), 60, 90);
 
             }
 
             g2.setColor(Color.black);
 
-            g.drawImage(Images.boss1OverWorld[0],finalBoss.x,finalBoss.y,60,90,null);
+            g.drawImage(Images.boss1OverWorld[0],boss1.x,boss1.y,60,90,null);
 
-            if (finalBoss.intersects(handler.getEntityManager().getPlayer().getCollision())) {
+            if (boss1.intersects(handler.getEntityManager().getPlayer().getCollision())) {
                 handler.getEntityManager().getPlayer().facing = "Left";
                 State.setState(new FightState(handler, this, this.Area));
             }
@@ -67,11 +67,11 @@ public class Boss1 extends BaseHostileEntity implements Fighter {
 	}
 	@Override
 	public Rectangle getCollision() {
-		return finalBoss;
+		return boss1;
 	}
 	
 	//FIGHT STATS
-	double health=200,mana=200,xp=0l,lvl=3,defense=36,str=24,intl=60, mr = 30,cons=60,acc=30,evs=3,initiative=3,maxHealth=200;
+	double health=200,mana=200,xp=120,lvl=3,defense=9,str=15,intl=20, mr = 10,cons=20,acc=10,evs=1,initiative=5,maxHealth=200;
 	String Class = "Boss",skill = "Fire";
 	String[] buffs = {},debuffs = {};
 
